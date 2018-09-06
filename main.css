@@ -1,5 +1,5 @@
 *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
   }
   
   html {
@@ -145,7 +145,7 @@
   }
   .text-bar__field {
     float: left;
-    width: calc(100% - 50px);
+    width: calc(100% - 60px);
     height: 100%;
   }
   .text-bar__field input {
@@ -277,7 +277,7 @@
   /* Chat */
   
   .chat {
-    height: calc(100% - 69px);
+    height: calc(100% - 79px);
   }
   
   .chat-container {
