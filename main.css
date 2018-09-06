@@ -16,6 +16,9 @@
     margin: 0;
     padding: 0;
     height: 100%;
+    background-size: contain;
+    background-position: top center;
+    background-image: url(https://lyketil.com/wp-content/uploads/2018/09/doodle-background-5-circular.png),linear-gradient(342deg,#50a7ed 0%,#ac4bfd 78%);
   }
 
   .page {
