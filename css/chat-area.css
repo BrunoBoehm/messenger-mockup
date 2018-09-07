@@ -27,6 +27,10 @@
     float: right;
   }
 
+  /* Message wrapper containing spinner and message instance */
+  .message-wrapper {
+  }
+
   /* A single instance of a message from a sender/receiver block */
   .message {
     margin-bottom: 2px;
@@ -55,39 +59,40 @@
   *
   */
 
-  .messages--received .message {
+  .messages--received .message-wrapper .message {
+    float: left;
     background-color: #ddd;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
   }
 
-  .messages--received .message:first-child {
+  .messages--received .message-wrapper:first-child .message {
     border-top-left-radius: 15px;
   }
 
-  .messages--received .message:last-child {
+  .messages--received .message-wrapper:last-child .message {
     border-bottom-left-radius: 15px;
   }
 
   /* 
   *
   * Messages SENT
-  * Color and rounding
   *
   */
 
-  .messages--sent .message {
+  .messages--sent .message-wrapper .message {
+    float: right;
     background-color: #1998e6;
     color: #fff;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
   }
 
-  .messages--sent .message:first-child {
+  .messages--sent .message-wrapper:first-child .message {
     border-top-right-radius: 15px;
   }
 
-  .messages--sent .message:last-child {
+  .messages--sent .message-wrapper:last-child .message {
     border-bottom-right-radius: 15px;
   }
   

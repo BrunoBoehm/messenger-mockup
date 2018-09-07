@@ -59,7 +59,7 @@ $(document).ready(function () {
         // Close previous block and begin a new .messages block
         const newMessageBlock = `
             <div class="messages messages--${obj.type}">
-                <div class="${obj.name}" hidden>
+                <div class="message-wrapper ${obj.name}" hidden>
                     <div class="sp-${obj.name}">
                         <span class="spinme-${obj.type}">
                             <div class="spinner">
@@ -77,7 +77,7 @@ $(document).ready(function () {
         // Just expand the current .messages block
         const continueCurrentBlock = ` 
             <!-- continueCurrentBlock starts -->
-            <div class="${obj.name}" hidden>
+            <div class="message-wrapper ${obj.name}" hidden>
                 <div class="sp-${obj.name}">
                     <span class="spinme-${obj.type}">
                         <div class="spinner">
