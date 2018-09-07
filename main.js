@@ -51,8 +51,26 @@ $(document).ready(function () {
         // if (obj.showTime == true) {
         // chatTimeString = "<span class='message-time'>" + obj.time + "</span>";
         // }
-        $(".conversation").append("<div class='messages messages--" + obj.type + " " + obj.name + "' hidden><div class='sp-" + obj.name + "'><span class='spinme-" + obj.type + "'><div class='spinner'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div></span></div><div class='message message-" + obj.name + "' hidden>" + obj.msg + "</div></div>");
-        
+        // $(".conversation").append("<div class='messages messages--" + obj.type + " " + obj.name + "' hidden><div class='sp-" + obj.name + "'><span class='spinme-" + obj.type + "'><div class='spinner'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div></span></div><div class='message message-" + obj.name + "' hidden>" + obj.msg + "</div></div>");
+
+        // Code God bless ES6 template literals
+        const returnTemplate = `
+            <div class="messages messages--${obj.type} ${obj.name}" hidden>
+                <div class="sp-${obj.name}">
+                    <span class="spinme-${obj.type}">
+                        <div class="spinner">
+                            <div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
+                        </div>
+                    </span>
+                </div>
+                <div class="message message-${obj.name}" hidden>
+                    ${obj.msg}
+                </div>
+            </div>        
+        `;
+
+        $(".conversation").append(returnTemplate);
+
         // load box on page, hide spinner after main message delay, fade in message text inside box
         msgname = "." + obj.name;
         $(msgname).delay(chatDelay).fadeIn(); // appear all div after previous message
