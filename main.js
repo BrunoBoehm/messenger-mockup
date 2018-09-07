@@ -30,25 +30,39 @@ $(document).ready(function () {
             msg: "Love it. I mean it.",
             delay: 2000,
             type: "received"
+        },
+        {
+            msg: "What about some porridge",
+            delay: 2000,
+            type: "sent"
+        },
+        {
+            msg: "Porridge is great foo man.",
+            delay: 2000,
+            type: "sent"
+        },
+        {
+            msg: "Let's eat like pigs, I say.",
+            delay: 2000,
+            type: "received"
         }
     ];
 
     var chatDelay = -1000;
 
     function onRowAdded() {
-        $('.chat-container').animate({
-            scrollTop: $('.chat-container').prop('scrollHeight')
-        });
+        const scrollHeight = $('.conversation').prop('scrollHeight');
+        $('.conversation').animate( { scrollTop: scrollHeight }, scrollHeight );
     };
     
     $.each(chatMessages, function(_index, obj) {
-        messageNumber = chatMessages.length;
+        const messageNumber = chatMessages.length;
         console.log("Number of messages: " + messageNumber + ", currently at index " + _index);
         chatDelay = chatDelay + 1000; // between each message
-        chatDelay2 = chatDelay + obj.delay; // time spinning
-        chatDelay3 = chatDelay2 + 10; // after spinning stops
-        scrollDelay = chatDelay;
-        chatTimeString = " ";
+        const chatDelay2 = chatDelay + obj.delay; // time spinning
+        const chatDelay3 = chatDelay2 + 10; // after spinning stops
+        const scrollDelay = chatDelay;
+        const chatTimeString = " ";
         obj.name = _index + 1;
 
         // if (obj.showTime == true) {
