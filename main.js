@@ -11,8 +11,13 @@ $(document).ready(function () {
             type: "received"
         },
         {
+            msg: 'This is a list for you<br>• first item<br>• second item',
+            type: "received"
+        },
+        {
             msg: "Yo man!",
-            type: "sent"
+            type: "sent",
+            delay: 4000
         },
         {
             msg: "We're having fun yo",
@@ -45,6 +50,10 @@ $(document).ready(function () {
         {
             msg: "Let's eat like pigs, I say.",
             type: "received"
+        },
+        {
+            msg: '<i class="em em-tada"></i> And don\'t forget to chat with us on <span class="accent">fb.me/lyketil</span>',
+            type: "received"
         }
     ];
 
@@ -52,12 +61,12 @@ $(document).ready(function () {
 
     function onRowAdded() {
         const scrollHeight = $('.conversation').prop('scrollHeight');
-        $('.conversation').animate( { scrollTop: scrollHeight }, scrollHeight * 4 );
+        $('.conversation').animate( { scrollTop: scrollHeight }, scrollHeight * 2 );
     };
     
     $.each(chatMessages, function(_index, obj) {
         const messageNumber = chatMessages.length;
-        chatDelay = chatDelay + 1000; // between each message
+        chatDelay = chatDelay + 1000 + ( obj.delay ? obj.delay : 0 ); // before this message is triggered
         let currentWordsCount = chatMessages[_index].msg.split(" ").length; // timing based on length of current text
         const chatDelay2 = chatDelay + ( currentWordsCount * 250 ); // time spinning
         const chatDelay3 = chatDelay2 + 50; // after spinning stops
