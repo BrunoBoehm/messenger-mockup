@@ -28,6 +28,11 @@ $(document).ready(function () {
             type: "received"
         },
         {
+            msg: "thumb",
+            delay: 1000,
+            type: "received"
+        },
+        {
             msg: 'Love it. I mean it. <i class="em em-cool"></i>',
             delay: 2000,
             type: "received"
@@ -71,27 +76,7 @@ $(document).ready(function () {
         // }
         // $(".conversation").append("<div class='messages messages--" + obj.type + " " + obj.name + "' hidden><div class='sp-" + obj.name + "'><span class='spinme-" + obj.type + "'><div class='spinner'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div></span></div><div class='message message-" + obj.name + "' hidden>" + obj.msg + "</div></div>");
 
-        // Close previous block and begin a new .messages block
-        const newMessageBlock = `
-            <div class="messages messages--${obj.type}">
-                <div class="message-wrapper ${obj.name}" hidden>
-                    <div class="sp-${obj.name}">
-                        <span class="spinme-${obj.type}">
-                            <div class="spinner">
-                                <div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="message message-${obj.name}" hidden>
-                        ${obj.msg}
-                    </div>
-                </div>
-            </div>          
-        `;
-
-        // Just expand the current .messages block
-        const continueCurrentBlock = ` 
-            <!-- continueCurrentBlock starts -->
+        const commentBlock = ` 
             <div class="message-wrapper ${obj.name}" hidden>
                 <div class="sp-${obj.name}">
                     <span class="spinme-${obj.type}">
@@ -104,18 +89,24 @@ $(document).ready(function () {
                     ${obj.msg}
                 </div>
             </div>
-            <!-- continueCurrentBlock ends -->
         `;
 
+        const thumbBlock = `
+            <div class="message-wrapper ${obj.name}" hidden>
+                <div class="message message--thumb thumb"></div>
+            </div>
+        `;
+
+        const insertMessage = ( obj.msg == "thumb" ? thumbBlock : commentBlock )
         let prevMessageSameType = $('.messages:last-child').hasClass(`messages--${obj.type}`);
         if ( ! prevMessageSameType ) {
             // If current message has a different type from previous one
             // Then create a new .messages block
-            $(".conversation").append(newMessageBlock);
+            $(".conversation").append(`<div class="messages messages--${obj.type}">` + insertMessage + "</div>");
         } else {
             // Else (if current message has same type as previous one)
             // Then insert in existing .messages block
-            $('.messages:last-child').append(continueCurrentBlock);
+            $('.messages:last-child').append(insertMessage);
         };
 
         // load box on page, hide spinner after main message delay, fade in message text inside box
