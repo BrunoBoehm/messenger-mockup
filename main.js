@@ -57,7 +57,26 @@ $(document).ready(function () {
 
         // Close previous block and begin a new .messages block
         const newMessageBlock = `
-            <div class="messages messages--${obj.type} ${obj.name}" hidden>
+            <div class="messages messages--${obj.type}">
+                <div class="${obj.name}" hidden>
+                    <div class="sp-${obj.name}">
+                        <span class="spinme-${obj.type}">
+                            <div class="spinner">
+                                <div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="message message-${obj.name}" hidden>
+                        ${obj.msg}
+                    </div>
+                </div>
+            </div>          
+        `;
+
+        // Just expand the current .messages block
+        const continueCurrentBlock = ` 
+            <!-- continueCurrentBlock starts -->
+            <div class="${obj.name}" hidden>
                 <div class="sp-${obj.name}">
                     <span class="spinme-${obj.type}">
                         <div class="spinner">
@@ -68,21 +87,6 @@ $(document).ready(function () {
                 <div class="message message-${obj.name}" hidden>
                     ${obj.msg}
                 </div>
-            </div>          
-        `;
-
-        // Just expand the current .messages block
-        const continueCurrentBlock = ` 
-            <!-- continueCurrentBlock starts -->
-            <div class="sp-${obj.name}">
-                <span class="spinme-${obj.type}">
-                    <div class="spinner">
-                        <div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
-                    </div>
-                </span>
-            </div>
-            <div class="message message-${obj.name}" hidden>
-                ${obj.msg}
             </div>
             <!-- continueCurrentBlock ends -->
         `;
@@ -103,7 +107,7 @@ $(document).ready(function () {
         $(msgname).delay(chatDelay).fadeIn(); // appear all div after previous message
 
         spinner = ".sp-" + obj.name;
-        $(spinner).delay(chatDelay2).hide(1); // spins
+        $(spinner).delay(chatDelay2).hide(1); // spins during "chatDelay2" time then hides
 
         msginner = ".message-" + obj.name;
         $(msginner).delay(chatDelay3).fadeIn(); // text appears just after spinner goes out 

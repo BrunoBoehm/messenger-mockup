@@ -11,19 +11,23 @@
     padding-bottom: 0;
   }
   
+  /* Block of one or several messages from the same sender/reader */
   .messages {
     margin-bottom: 14px;
     clear:both;
   }
 
+  /* Block of messages aligned left because received (in grey) */
   .messages--received {
     float: left;
   }
 
+  /* Block of messages aligned right because sent (in blue) */
   .messages--sent {
     float: right;
   }
 
+  /* A single instance of a message from a sender/receiver block */
   .message {
     margin-bottom: 2px;
     clear: both;
@@ -33,6 +37,7 @@
     line-height: 1.4;
   }
 
+  /* A simple thumb post */
   .message--thumb {
     background-color: transparent !important;
     padding: 0;
@@ -43,7 +48,13 @@
     border-radius: 0px !important;
   }
 
-  /* Messages RECEIVED */
+  /*
+  *
+  * Messages RECEIVED 
+  * Color and rounding
+  *
+  */
+
   .messages--received .message {
     background-color: #ddd;
     border-bottom-left-radius: 5px;
@@ -58,7 +69,13 @@
     border-bottom-left-radius: 15px;
   }
 
-  /* Messages SENT */
+  /* 
+  *
+  * Messages SENT
+  * Color and rounding
+  *
+  */
+
   .messages--sent .message {
     background-color: #1998e6;
     color: #fff;
