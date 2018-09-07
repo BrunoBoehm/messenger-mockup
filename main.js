@@ -38,6 +38,11 @@ $(document).ready(function () {
             type: "received"
         },
         {
+            msg: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+            delay: 2000,
+            type: "received"
+        },
+        {
             msg: "What about some porridge",
             delay: 2000,
             type: "sent"
@@ -97,7 +102,32 @@ $(document).ready(function () {
             </div>
         `;
 
-        const insertMessage = ( obj.msg == "thumb" ? thumbBlock : commentBlock )
+        const imageBlock = `
+            <div class="message-wrapper with-image ${obj.name}" hidden>
+                <div class="sp-${obj.name}">
+                    <span class="spinme-${obj.type}">
+                        <div class="spinner">
+                            <div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
+                        </div>
+                    </span>
+                </div>
+                <div class="message message-${obj.name}" hidden>
+                    <img class="image-message" src="${obj.msg}" />
+                </div>
+            </div>            
+        `;
+
+        let insertMessage = "";
+        const supportedMedia = [".jpg", ".png", ".gif"];
+
+        if ( supportedMedia.some( el => obj.msg.includes(el) ) ) {
+            insertMessage = imageBlock;
+        } else if ( obj.msg == "thumb" ) {
+            insertMessage = thumbBlock;
+        } else {
+            insertMessage = commentBlock;
+        };
+
         let prevMessageSameType = $('.messages:last-child').hasClass(`messages--${obj.type}`);
         if ( ! prevMessageSameType ) {
             // If current message has a different type from previous one
