@@ -2,32 +2,32 @@ $(document).ready(function () {
 
     const chatMessages = [
         {
-            name: "ms1",
             msg: "Who are you?",
             delay: 2000,
             type: "sent"
         },
         {
-            name: "ms2",
             msg: "Hey there!",
             delay: 4000,
             type: "received"
         },
         {
-            name: "ms3",
             msg: "Yo man!",
             delay: 3000,
             type: "sent"
         },
         {
-            name: "ms4",
             msg: "We're having fun yo",
             delay: 2000,
             type: "received"
         },
         {
-            name: "ms5",
             msg: "That's neat bro I love the feel of this chat it's rad.",
+            delay: 2000,
+            type: "received"
+        },
+        {
+            msg: "Love it. I mean it.",
             delay: 2000,
             type: "received"
         }
@@ -49,6 +49,7 @@ $(document).ready(function () {
         chatDelay3 = chatDelay2 + 10; // after spinning stops
         scrollDelay = chatDelay;
         chatTimeString = " ";
+        obj.name = _index + 1;
 
         // if (obj.showTime == true) {
         // chatTimeString = "<span class='message-time'>" + obj.time + "</span>";
