@@ -20,11 +20,13 @@
   /* Block of messages aligned left because received (in grey) */
   .messages--received {
     float: left;
+    text-align: left;
   }
 
   /* Block of messages aligned right because sent (in blue) */
   .messages--sent {
     float: right;
+    text-align: right;
   }
 
   /* Message wrapper containing spinner and message instance */
@@ -103,9 +105,13 @@
   *
   */
 
+  div[class^="sp-"] {
+    clear: both;
+  }
+
   .spinme-sent {
     display: inline-block;
-    padding: 15px 20px;
+    padding: 15px 0 15px 20px;
     font-size: 14px;
     border-radius: 30px;
     line-height: 1.25em;
@@ -115,7 +121,7 @@
   
   .spinme-received {
     display: inline-block;
-    padding: 15px 20px;
+    padding: 15px 20px 15px 0;
     font-size: 14px;
     color: #ccc;
     border-radius: 30px;
