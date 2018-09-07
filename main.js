@@ -42,6 +42,8 @@ $(document).ready(function () {
     };
     
     $.each(chatMessages, function(_index, obj) {
+        messageNumber = chatMessages.length;
+        console.log("Number of messages: " + messageNumber + ", currently at index " + _index);
         chatDelay = chatDelay + 1000; // between each message
         chatDelay2 = chatDelay + obj.delay; // time spinning
         chatDelay3 = chatDelay2 + 10; // after spinning stops
@@ -53,8 +55,8 @@ $(document).ready(function () {
         // }
         // $(".conversation").append("<div class='messages messages--" + obj.type + " " + obj.name + "' hidden><div class='sp-" + obj.name + "'><span class='spinme-" + obj.type + "'><div class='spinner'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div></span></div><div class='message message-" + obj.name + "' hidden>" + obj.msg + "</div></div>");
 
-        // Code God bless ES6 template literals
-        const returnTemplate = `
+        // Close previous block and begin a new .messages block
+        const newMessageBlock = `
             <div class="messages messages--${obj.type} ${obj.name}" hidden>
                 <div class="sp-${obj.name}">
                     <span class="spinme-${obj.type}">
@@ -66,10 +68,51 @@ $(document).ready(function () {
                 <div class="message message-${obj.name}" hidden>
                     ${obj.msg}
                 </div>
-            </div>        
+            <!-- this is unclosed by newMessageBlock -->           
         `;
 
-        $(".conversation").append(returnTemplate);
+        // Just expand the current .messages block
+        const continueCurrentBlock = ` 
+            <!-- continueCurrentBlock starts -->
+            <div class="sp-${obj.name}">
+                <span class="spinme-${obj.type}">
+                    <div class="spinner">
+                        <div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
+                    </div>
+                </span>
+            </div>
+            <div class="message message-${obj.name}" hidden>
+                ${obj.msg}
+            </div>
+            <!-- continueCurrentBlock ends -->
+        `;
+
+        let prevMessageSameType = $('.messages:last-child').hasClass(`messages--${obj.type}`);
+        const closeTag = `</div> <!-- closeTag -->`;
+        console.log("Previous DOM element is: ");
+        console.log($('.messages:last-child').get(0));
+        if ( ! prevMessageSameType && ( _index != messageNumber - 1 ) ) {
+            // If current message has a type different from previous one
+            // Then create a new .messages block
+            console.log(_index);
+            console.log("Previous Message Test " + prevMessageSameType + ", Current is: " + obj.type + "=> newMessageBlock")
+            if ( _index != 0 ) {
+                // if not the first message block then close previous one
+                $(".conversation").append(closeTag + "<!-- Only added when index ≠ 0 -->" + newMessageBlock);
+            } else {
+                $(".conversation").append(newMessageBlock);
+            }
+        } else {
+            // Else if current message has same type as previous one
+            // Then insert in existing .messages block
+            console.log("Previous Message Test " + prevMessageSameType + ", Current is: " + obj.type + "=> continueCurrentBlock")
+            $(".conversation").append(continueCurrentBlock);
+        };
+
+        // close the <div> after last element
+        if ( _index == messageNumber - 1 ) {
+            $(".conversation").append("</div> <!-- Show is over -->");
+        };
 
         // load box on page, hide spinner after main message delay, fade in message text inside box
         msgname = "." + obj.name;
