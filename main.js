@@ -68,7 +68,7 @@ $(document).ready(function () {
                 <div class="message message-${obj.name}" hidden>
                     ${obj.msg}
                 </div>
-            <!-- this is unclosed by newMessageBlock -->           
+            </div>          
         `;
 
         // Just expand the current .messages block
@@ -88,30 +88,14 @@ $(document).ready(function () {
         `;
 
         let prevMessageSameType = $('.messages:last-child').hasClass(`messages--${obj.type}`);
-        const closeTag = `</div> <!-- closeTag -->`;
-        console.log("Previous DOM element is: ");
-        console.log($('.messages:last-child').get(0));
-        if ( ! prevMessageSameType && ( _index != messageNumber - 1 ) ) {
-            // If current message has a type different from previous one
+        if ( ! prevMessageSameType ) {
+            // If current message has a different type from previous one
             // Then create a new .messages block
-            console.log(_index);
-            console.log("Previous Message Test " + prevMessageSameType + ", Current is: " + obj.type + "=> newMessageBlock")
-            if ( _index != 0 ) {
-                // if not the first message block then close previous one
-                $(".conversation").append(closeTag + "<!-- Only added when index ≠ 0 -->" + newMessageBlock);
-            } else {
-                $(".conversation").append(newMessageBlock);
-            }
+            $(".conversation").append(newMessageBlock);
         } else {
-            // Else if current message has same type as previous one
+            // Else (if current message has same type as previous one)
             // Then insert in existing .messages block
-            console.log("Previous Message Test " + prevMessageSameType + ", Current is: " + obj.type + "=> continueCurrentBlock")
-            $(".conversation").append(continueCurrentBlock);
-        };
-
-        // close the <div> after last element
-        if ( _index == messageNumber - 1 ) {
-            $(".conversation").append("</div> <!-- Show is over -->");
+            $('.messages:last-child').append(continueCurrentBlock);
         };
 
         // load box on page, hide spinner after main message delay, fade in message text inside box
