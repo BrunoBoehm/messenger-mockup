@@ -145,6 +145,10 @@
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
     background: rgba(0,0,0,1);
   }
+
+  .spinme-sent > .spinner > div {
+    background: #1998e6;
+  }
    
   .spinner .bounce1 {
     -webkit-animation-delay: -0.32s;
