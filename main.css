@@ -75,7 +75,7 @@
 	}
 }
 
-.screen {
+  .screen {
     background-color: #fff;
     height: 400px;
     width: 300px;
@@ -91,22 +91,35 @@
   }
   
   .messages {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    clear:both;
   }
-  .messages--received .message {
+
+  .messages--recevied {
     float: left;
+  }
+
+  .messages--sent {
+    float: right;
+  }
+
+  .messages--received .message {
+    display: inline-block;
     background-color: #ddd;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
   }
+
   .messages--received .message:first-child {
     border-top-left-radius: 15px;
   }
+
   .messages--received .message:last-child {
     border-bottom-left-radius: 15px;
   }
+
   .messages--sent .message {
-    float: right;
+    display: inline-block;
     background-color: #1998e6;
     color: #fff;
     border-bottom-right-radius: 5px;
@@ -120,15 +133,14 @@
   }
   
   .message {
-    display: inline-block;
     margin-bottom: 2px;
     clear: both;
     padding: 7px 13px;
     font-size: 18px;
-    /* initial font-size was 12 px  */
     border-radius: 15px;
     line-height: 1.4;
   }
+
   .message--thumb {
     background-color: transparent !important;
     padding: 0;
@@ -357,3 +369,75 @@
     font-weight: 400;
     letter-spacing: 0;
   }  
+
+  /* Spinner */
+  .spinme-sent {
+    display: inline-block;
+    padding: 15px 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    line-height: 1.25em;
+    font-weight: 100;
+    opacity: 0.2;
+  }
+  
+  .spinme-received {
+    display: inline-block;
+    padding: 15px 20px;
+    font-size: 14px;
+    color: #ccc;
+    border-radius: 30px;
+    line-height: 1.25em;
+    font-weight: 100;
+    opacity: 0.2;
+  }
+  
+  .spinner {
+    margin: 0;
+    width: 30px;
+    text-align: center;
+  }
+  
+  .spinner > div {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    background: rgba(0,0,0,1);
+  }
+   
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  
+  @-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+      -webkit-transform: scale(0)
+    }
+    40% {
+      -webkit-transform: scale(1.0)
+    }
+  }
+  
+  @keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    40% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+  }
