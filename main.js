@@ -48,7 +48,7 @@ $(document).ready(function () {
         }
     ];
 
-    var chatDelay = -1000;
+    var chatDelay = 0;
 
     function onRowAdded() {
         const scrollHeight = $('.conversation').prop('scrollHeight');
@@ -57,10 +57,9 @@ $(document).ready(function () {
     
     $.each(chatMessages, function(_index, obj) {
         const messageNumber = chatMessages.length;
-        console.log("Number of messages: " + messageNumber + ", currently at index " + _index);
         chatDelay = chatDelay + 1000; // between each message
-        let previousWordsCount = ( _index == 0 ? 2 : chatMessages[_index - 1].msg.split(" ").length );
-        const chatDelay2 = chatDelay + ( previousWordsCount * 400); // time spinning
+        let currentWordsCount = chatMessages[_index].msg.split(" ").length; // timing based on length of current text
+        const chatDelay2 = chatDelay + ( currentWordsCount * 250 ); // time spinning
         const chatDelay3 = chatDelay2 + 50; // after spinning stops
         const scrollDelay = chatDelay;
         const chatTimeString = " ";
