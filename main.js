@@ -4,13 +4,13 @@ $(document).ready(function () {
         {
             name: "ms1",
             msg: "Who are you?",
-            delay: 500,
+            delay: 2000,
             type: "sent"
         },
         {
             name: "ms2",
             msg: "Hey there!",
-            delay: 1000,
+            delay: 4000,
             type: "received"
         },
         {
