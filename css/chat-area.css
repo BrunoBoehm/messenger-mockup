@@ -205,3 +205,28 @@
       transform: scale(1.0);
     }
   }  
+
+  /*
+  *
+  * Message styling
+  *
+  */
+  .accent {
+    background-color: #00000021;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  
+  .accent--medium {
+    background-color: #1998e645;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .accent--strong {
+    background-color: #ff4208;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-decoration: underline;
+    color: white;
+  }
