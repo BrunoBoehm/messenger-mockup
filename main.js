@@ -4,57 +4,46 @@ $(document).ready(function () {
     const chatMessages = [
         {
             msg: 'Who are you <i class="em em-cookie"></i>?',
-            delay: 2000,
             type: "sent"
         },
         {
             msg: "Hey there!",
-            delay: 4000,
             type: "received"
         },
         {
             msg: "Yo man!",
-            delay: 3000,
             type: "sent"
         },
         {
             msg: "We're having fun yo",
-            delay: 2000,
             type: "received"
         },
         {
             msg: "That's neat bro I love the feel of this chat it's rad.",
-            delay: 2000,
             type: "received"
         },
         {
             msg: "thumb",
-            delay: 1000,
             type: "received"
         },
         {
-            msg: 'Love it. I mean it. <i class="em em-cool"></i>',
-            delay: 2000,
+            msg: 'Love it. I mean it\'s <i class="em em-cool"></i>',
             type: "received"
         },
         {
             msg: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
-            delay: 2000,
             type: "received"
         },
         {
             msg: "What about some porridge",
-            delay: 2000,
             type: "sent"
         },
         {
-            msg: "Porridge is great foo man.",
-            delay: 2000,
+            msg: "Porridge is great food man.",
             type: "sent"
         },
         {
             msg: "Let's eat like pigs, I say.",
-            delay: 2000,
             type: "received"
         }
     ];
@@ -63,15 +52,16 @@ $(document).ready(function () {
 
     function onRowAdded() {
         const scrollHeight = $('.conversation').prop('scrollHeight');
-        $('.conversation').animate( { scrollTop: scrollHeight }, scrollHeight );
+        $('.conversation').animate( { scrollTop: scrollHeight }, scrollHeight * 4 );
     };
     
     $.each(chatMessages, function(_index, obj) {
         const messageNumber = chatMessages.length;
         console.log("Number of messages: " + messageNumber + ", currently at index " + _index);
         chatDelay = chatDelay + 1000; // between each message
-        const chatDelay2 = chatDelay + obj.delay; // time spinning
-        const chatDelay3 = chatDelay2 + 10; // after spinning stops
+        let previousWordsCount = ( _index == 0 ? 2 : chatMessages[_index - 1].msg.split(" ").length );
+        const chatDelay2 = chatDelay + ( previousWordsCount * 400); // time spinning
+        const chatDelay3 = chatDelay2 + 50; // after spinning stops
         const scrollDelay = chatDelay;
         const chatTimeString = " ";
         obj.name = _index + 1;
@@ -144,15 +134,16 @@ $(document).ready(function () {
         $(msgname).delay(chatDelay).fadeIn(); // appear all div after previous message
 
         spinner = ".sp-" + obj.name;
-        $(spinner).delay(chatDelay2).hide(1); // spins during "chatDelay2" time then hides
+        $(spinner).delay(chatDelay2).hide(300); // spins during "chatDelay2" time then hides
 
         msginner = ".message-" + obj.name;
         $(msginner).delay(chatDelay3).fadeIn(); // text appears just after spinner goes out 
 
         
-        // scroll
-        setTimeout(onRowAdded, chatDelay);
-        setTimeout(onRowAdded, chatDelay3);
+        // scroll during the spinner
+        setTimeout(onRowAdded, scrollDelay);
+        // scroll once spinner disappears
+        // setTimeout(onRowAdded, chatDelay3);
         chatDelay = chatDelay3;
     });
 
