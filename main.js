@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
+    // Emojis codes from https://afeld.github.io/emoji-css/
     const chatMessages = [
         {
-            msg: "Who are you?",
+            msg: 'Who are you <i class="em em-cookie"></i>?',
             delay: 2000,
             type: "sent"
         },
@@ -27,7 +28,7 @@ $(document).ready(function () {
             type: "received"
         },
         {
-            msg: "Love it. I mean it.",
+            msg: 'Love it. I mean it. <i class="em em-cool"></i>',
             delay: 2000,
             type: "received"
         },
