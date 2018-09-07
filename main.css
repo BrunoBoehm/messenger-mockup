@@ -103,7 +103,8 @@
 
   .status-bar {
     height: 35px;
-    background: #1998e6;
+    /* background: #1998e6; */
+    background: url(https://lyketil.com/wp-content/uploads/2018/09/doodle-background-5-circular.png) #4b0a74  -240px 762px;
     color: #fff;
     font-size: 16px;
     padding: 10px 20px 0;
@@ -133,7 +134,8 @@
   
   .user-bar {
     height: 55px;
-    background: #1998e6;
+    /* background: #1998e6; */
+    background: url(https://lyketil.com/wp-content/uploads/2018/09/doodle-background-5-circular.png) #4b0a74 top;
     color: #fff;
     padding: 0 8px;
     font-size: 24px;
