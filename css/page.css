@@ -97,9 +97,12 @@
   }
 
   /*
+  *
   * Celebrations
+  *
   */
 
+  /* Test drive on Cubi Bezier here http://cubic-bezier.com/ */
   .celebration-animal {
     background-image: url(https://asanablog-wpengine.netdna-ssl.com/wp-content/post-images/Solo-Unicorn-520x520.jpg);
     background-size: cover;
