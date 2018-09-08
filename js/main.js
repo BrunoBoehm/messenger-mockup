@@ -2,62 +2,63 @@ $(document).ready(function () {
 
     // Emojis codes from https://afeld.github.io/emoji-css/
     const chatMessages = [
+        {   // QUESTION
+            msg: "Comment je fais pour avoir plus de clients grâce à internet ?",
+            type: "sent"
+        },{
+            msg: "Salut!",
+            type: "received"
+        }, {
+            msg: `Ah ça c'est notre rayon <i class="em em-muscle"></i>`, 
+            type: "received"
+        },
         {
-            msg: 'Who are you <i class="em em-cookie"></i>?',
+            msg: "thumb",
             type: "sent"
         },
-        // {
-        //     msg: "Hey there!",
-        //     type: "received"
-        // },
-        // {
-        //     msg: 'This is a list for you<br>• first item<br>• second item',
-        //     type: "received"
-        // },
-        // {
-        //     msg: "Yo man!",
-        //     type: "sent",
-        //     delay: 4000
-        // },
-        // {
-        //     msg: "We're having fun yo",
-        //     type: "received"
-        // },
-        // {
-        //     msg: "That's neat bro I love the feel of this chat it's rad.",
-        //     type: "received"
-        // },
-        // {
-        //     msg: "thumb",
-        //     type: "received"
-        // },
-        // {
-        //     msg: 'Love it. I mean it\'s <i class="em em-cool"></i>',
-        //     type: "received"
-        // },
-        // {
-        //     msg: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
-        //     type: "received"
-        // },
-        // {
-        //     msg: "What about some porridge",
-        //     type: "sent"
-        // },
-        // {
-        //     msg: "Porridge is great food man.",
-        //     type: "sent"
-        // },
-        // {
-        //     msg: "Let's eat like pigs, I say.",
-        //     type: "received"
-        // },
-        // {
-        //     msg: '<i class="em em-tada"></i> And don\'t forget to chat with us on <span class="accent">fb.me/lyketil</span>',
-        //     type: "received"
-        // }
+        {
+            msg: "COOL... J'aimerais bien développer mon business avec le web.",
+            type: "sent"
+        },
+        {
+            msg: "OK, en bref et en simplifiant la recette c'est :",
+            type: "received"
+        },
+        {
+            msg: "1. Une bonne <b>stratégie</b> (choisir vos priorités et comment tenter de les atteindre)",
+            type: "received"
+        },
+        {
+            msg: "2. Du bon <b>contenu</b> (photos, vidéos, textes, documents) pour bien expliquer ou donner envie !",
+            type: "received"
+        },
+        {
+            msg: '3. Un <b>site</b> ou une plateforme pour "convertir" les personnes intéressées en vrais contacts (futurs clients)',
+            type: "received"
+        },
+        {
+            msg: 'Et surtout de la régularité et un peu de persévérance <i class="em em-zap"></i><i class="em em-yum"></i>',
+            type: "received"
+        },
+        {
+            msg: 'OK... On commence quand?',
+            type: "sent"
+        },
+        {
+            msg: '<i class="em em-tada"></i> Cool! On va <span class="accent--medium">ACTIVER</span> votre présence digitale!',
+            type: "received"
+        },
+        {
+            msg: 'https://media.giphy.com/media/xULW8vuRXQYvaGJAQw/giphy.gif',
+            type: "received"
+        },
+        {
+            msg: 'D\'autres questions ? Contacter nous sur le chat <span class="accent">fb.me/lyketil</span> ou sur notre site <span class="accent--strong">lyketil.com</span>',
+            type: "received"
+        },  
     ];
 
-    var chatDelay = 0;
+    var totalChatDelay = 0;
 
     function onRowAdded() {
         const scrollHeight = $('.conversation').prop('scrollHeight');
@@ -66,18 +67,13 @@ $(document).ready(function () {
     
     $.each(chatMessages, function(_index, obj) {
         const messageNumber = chatMessages.length;
-        chatDelay = chatDelay + 1000 + ( obj.delay ? obj.delay : 0 ); // before this message is triggered
+        totalChatDelay = totalChatDelay + 1000 + ( obj.delay ? obj.delay : 0 ); // before this message is triggered
         let currentWordsCount = chatMessages[_index].msg.split(" ").length; // timing based on length of current text
-        const chatDelay2 = chatDelay + ( currentWordsCount * 250 ); // time spinning
+        const chatDelay2 = totalChatDelay + ( currentWordsCount * 250 ); // time spinning
         const chatDelay3 = chatDelay2 + 50; // after spinning stops
-        const scrollDelay = chatDelay;
-        const chatTimeString = " ";
+        const scrollDelay = totalChatDelay;
         obj.name = _index + 1;
-
-        // if (obj.showTime == true) {
-        // chatTimeString = "<span class='message-time'>" + obj.time + "</span>";
-        // }
-        // $(".conversation").append("<div class='messages messages--" + obj.type + " " + obj.name + "' hidden><div class='sp-" + obj.name + "'><span class='spinme-" + obj.type + "'><div class='spinner'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div></span></div><div class='message message-" + obj.name + "' hidden>" + obj.msg + "</div></div>");
+        console.log("Message " + obj.name + "/" + messageNumber + ". Durée : " + totalChatDelay/1000 + "s");
 
         const commentBlock = ` 
             <div class="message-wrapper ${obj.name}" hidden>
@@ -139,7 +135,7 @@ $(document).ready(function () {
 
         // load box on page, hide spinner after main message delay, fade in message text inside box
         msgname = "." + obj.name;
-        $(msgname).delay(chatDelay).fadeIn(); // appear all div after previous message
+        $(msgname).delay(totalChatDelay).fadeIn(); // appear all div after previous message
 
         spinner = ".sp-" + obj.name;
         $(spinner).delay(chatDelay2).hide(300); // spins during "chatDelay2" time then hides
@@ -151,25 +147,17 @@ $(document).ready(function () {
         // scroll during the spinner
         setTimeout(onRowAdded, scrollDelay);
         // scroll once spinner disappears
-        // setTimeout(onRowAdded, chatDelay3);
-        chatDelay = chatDelay3;
+        setTimeout(onRowAdded, chatDelay3);
+        totalChatDelay = chatDelay3;
     });
     // end of .each loop
 
 
     /*
-    *
-    * Beginning Timings
-    * 
-    */
-
-    // $(".marvel-device").hide().fadeIn(1000);
-
-    /*
-    *
-    * End Timings
-    * 
-    */
+     *
+     * Ending celebrations 
+     * 
+     */
 
     // end animation with some celebration 
     const beginCelebration = () => {
@@ -180,8 +168,8 @@ $(document).ready(function () {
         const addPartyAnimal = () => {
             $("body").append("<div class='celebration-animal'></div>");
         }
-        setTimeout(addPartyAnimal, 2000);
+        setTimeout(addPartyAnimal, 1500);
     }
 
-    setTimeout(beginCelebration, 3000);
+    setTimeout(beginCelebration, totalChatDelay);
 });
