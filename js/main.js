@@ -84,6 +84,20 @@ $(document).ready(function () {
         $("#confeti").hide(200);
     }
 
+    /*
+     * Manage Hovering
+     */
+    // $(".start-hovering").click(manageHovering);
+    // let hoveringState = false;
+    // function manageHovering() {
+    //     $(".marvel-device").removeClass("animated fadeInUp").toggleClass("hover-animation", 1000);
+    //     // $(".marvel-device").removeClass("animated fadeInUp").animate({
+    //     //     "box-shadow": "0 5px 15px 0px rgba(0,0,0,0)"
+    //     // }, 6000);
+    //     // $(".marvel-device").toggleClass("hover-animation");
+    //     hoveringState = !hoveringState;
+    //     $(".start-hovering").html( hoveringState ? "NO-HOVER" : "HOVER" );
+    // }
 
     /*
     * Timer 
