@@ -85,6 +85,16 @@ $(document).ready(function () {
     }
 
     /*
+     * Device Switcher 
+     */
+
+    let currentDevice = "iphone-x";
+    $("#device-select").on('change', function() {
+        $(".marvel-device").removeClass(currentDevice).addClass(this.value ? this.value : currentDevice );
+        currentDevice = this.value;
+    });
+
+    /*
      * Manage Hovering
      */
     // $(".start-hovering").click(manageHovering);
