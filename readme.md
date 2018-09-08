@@ -47,3 +47,4 @@ Inspired by
 - [Tim Guignard's pen](https://codepen.io/TimGuignard/pen/wgOXjr) for styling the FB messenger version
 - The awesome celebrations from Asana: [Narwhal](https://blog.asana.com/2016/03/new-celebrations-the-narwhal/), [Unicorn](https://blog.asana.com/2016/03/new-celebrations/), and [Yeti & Phoenix](https://blog.asana.com/2016/03/new-celebrations-meet-the-yeti/)
 - [Trello's confettis](https://codepen.io/surjithctly/pen/epGdPQ) on codepen
+- Cool buttons from [Angelfire](https://codepen.io/Angelfire/pen/opdDt)
