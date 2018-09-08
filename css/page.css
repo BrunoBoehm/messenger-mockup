@@ -20,6 +20,7 @@
     background-position: top center;
     background-image: url(https://lyketil.com/wp-content/uploads/2018/09/doodle-background-5-circular.png), linear-gradient(342deg,#50a7ed 0%,#ac4bfd 78%);
     background-repeat: no-repeat;
+    overflow: hidden;
   }
 
   .page {
@@ -59,24 +60,24 @@
   */
   .floating {
     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-	transform: translatey(0px);
-	animation: float 6s ease-in-out infinite;
+	  transform: translatey(0px);
+	  animation: float 6s ease-in-out infinite;
   }
 
   @keyframes float {
-	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: translatey(0px);
-	}
-	50% {
-		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-		transform: translatey(-20px);
-	}
-	100% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: translatey(0px);
-	}
-}
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+      transform: translatey(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+  }
 
   .screen {
     text-align: left;
@@ -93,4 +94,31 @@
   
   .chat-container {
     height: 100%;
+  }
+
+  /*
+  * Celebrations
+  */
+
+  .celebration-animal {
+    background-image: url(https://asanablog-wpengine.netdna-ssl.com/wp-content/post-images/Solo-Unicorn-520x520.jpg);
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    bottom: -20%;
+    left: 20%;  
+    animation: flyTopRight 1.3s cubic-bezier(.13,.66,.99,.35);
+    z-index: 50;
+  }
+
+  @keyframes flyTopRight {
+    from { 
+      bottom: 0%;
+      left: 20%; 
+    }
+    to {
+      bottom: 100%;
+      left: 70%;
+    }
   }

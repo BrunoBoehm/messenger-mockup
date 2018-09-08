@@ -6,55 +6,55 @@ $(document).ready(function () {
             msg: 'Who are you <i class="em em-cookie"></i>?',
             type: "sent"
         },
-        {
-            msg: "Hey there!",
-            type: "received"
-        },
-        {
-            msg: 'This is a list for you<br>• first item<br>• second item',
-            type: "received"
-        },
-        {
-            msg: "Yo man!",
-            type: "sent",
-            delay: 4000
-        },
-        {
-            msg: "We're having fun yo",
-            type: "received"
-        },
-        {
-            msg: "That's neat bro I love the feel of this chat it's rad.",
-            type: "received"
-        },
-        {
-            msg: "thumb",
-            type: "received"
-        },
-        {
-            msg: 'Love it. I mean it\'s <i class="em em-cool"></i>',
-            type: "received"
-        },
-        {
-            msg: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
-            type: "received"
-        },
-        {
-            msg: "What about some porridge",
-            type: "sent"
-        },
-        {
-            msg: "Porridge is great food man.",
-            type: "sent"
-        },
-        {
-            msg: "Let's eat like pigs, I say.",
-            type: "received"
-        },
-        {
-            msg: '<i class="em em-tada"></i> And don\'t forget to chat with us on <span class="accent">fb.me/lyketil</span>',
-            type: "received"
-        }
+        // {
+        //     msg: "Hey there!",
+        //     type: "received"
+        // },
+        // {
+        //     msg: 'This is a list for you<br>• first item<br>• second item',
+        //     type: "received"
+        // },
+        // {
+        //     msg: "Yo man!",
+        //     type: "sent",
+        //     delay: 4000
+        // },
+        // {
+        //     msg: "We're having fun yo",
+        //     type: "received"
+        // },
+        // {
+        //     msg: "That's neat bro I love the feel of this chat it's rad.",
+        //     type: "received"
+        // },
+        // {
+        //     msg: "thumb",
+        //     type: "received"
+        // },
+        // {
+        //     msg: 'Love it. I mean it\'s <i class="em em-cool"></i>',
+        //     type: "received"
+        // },
+        // {
+        //     msg: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+        //     type: "received"
+        // },
+        // {
+        //     msg: "What about some porridge",
+        //     type: "sent"
+        // },
+        // {
+        //     msg: "Porridge is great food man.",
+        //     type: "sent"
+        // },
+        // {
+        //     msg: "Let's eat like pigs, I say.",
+        //     type: "received"
+        // },
+        // {
+        //     msg: '<i class="em em-tada"></i> And don\'t forget to chat with us on <span class="accent">fb.me/lyketil</span>',
+        //     type: "received"
+        // }
     ];
 
     var chatDelay = 0;
@@ -154,5 +154,12 @@ $(document).ready(function () {
         // setTimeout(onRowAdded, chatDelay3);
         chatDelay = chatDelay3;
     });
+    // end of .each loop
 
+    // end animation with some celebration 
+    const beginCelebration = () => {
+        $("body").append("<div class='celebration-animal'></div>")
+    }
+
+    setTimeout(beginCelebration, 3000);
 });
