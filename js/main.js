@@ -86,6 +86,17 @@ $(document).ready(function () {
 
 
     /*
+    * Timer 
+    */       
+    var totalChatDelay = 0;
+    const messageCount = chatMessages.length;
+    $(".timer").html(`
+        <span class='timer__title'>DURATION</span> <span class='timer__data timer__duration'>N/A</span><br>
+        <span class='timer__title'>MESSAGES</span> <span class='timer__data'>${messageCount}</span>
+    `);
+
+
+    /*
      * Only start the whole show on button click 
      */
 
@@ -106,22 +117,19 @@ $(document).ready(function () {
         * Animates the sequential appearance of chat messages 
         */
 
-        var totalChatDelay = 0;
-
         function onRowAdded() {
             const scrollHeight = $('.conversation').prop('scrollHeight');
             $('.conversation').animate( { scrollTop: scrollHeight }, scrollHeight * 2 );
         };
         
         $.each(chatMessages, function(_index, obj) {
-            const messageNumber = chatMessages.length;
             totalChatDelay = totalChatDelay + 1000 + ( obj.delay ? obj.delay : 0 ); // before this message is triggered
             let currentWordsCount = chatMessages[_index].msg.split(" ").length; // timing based on length of current text
             const chatDelay2 = totalChatDelay + ( currentWordsCount * 80 ); // time spinning
             const chatDelay3 = chatDelay2 + 50; // after spinning stops
             const scrollDelay = totalChatDelay;
             obj.name = _index + 1;
-            console.log("Message " + obj.name + "/" + messageNumber + ". Durée : " + totalChatDelay/1000 + "s");
+            console.log("Message " + obj.name + "/" + messageCount + ". Durée : " + totalChatDelay/1000 + "s");
 
             const commentBlock = ` 
                 <div class="message-wrapper ${obj.name}" hidden>
@@ -201,6 +209,8 @@ $(document).ready(function () {
         });
         // end of .each loop
        
+        // Timer gives duration based on global const
+        $('.timer__duration').text(`${ totalChatDelay /1000 }s`);
 
         /*
         * Ending celebrations 

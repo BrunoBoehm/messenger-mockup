@@ -17,6 +17,22 @@
     margin-top: 30px;
 }
 
+.interface-panel .timer {
+    color: #50a7ed;
+    background-color: #5b1793;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.timer__title {
+    font-weight: bold;
+}
+
+.timer__data {
+    float: right;
+}
+
 .zooms h2 {
     font-size: 14px;
     color: white;
