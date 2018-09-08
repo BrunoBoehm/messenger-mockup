@@ -58,12 +58,27 @@ const chatMessages = [
 
 $(document).ready(function () {
 
+    $( ".zoom-o" ).click(function() {
+        $(".main-content").css("transform", "scale(1, 1)"); 
+    });
+    $( ".zoom-s" ).click(function() {
+        $(".main-content").css("transform", "scale(1.2, 1.2) translateY(-34px)"); 
+    });
+    $( ".zoom-m" ).click(function() {
+        $(".main-content").css("transform", "scale(1.4, 1.4) translateY(-100px)"); 
+    });
+    $( ".zoom-l" ).click(function() {
+        $(".main-content").css("transform", "scale(1.6, 1.6) translateY(-50px)"); 
+    });
+    $( ".zoom-xl" ).click(function() {
+        $(".main-content").css("transform", "scale(1.8, 1.8) translateY(-200px)"); 
+    });
+
     /*
      * Only start the whole show on button click 
      */
 
     $(".start-show").one("click", startShow);
-
 
     function startShow() {
         console.log("3, 2, 1... Start the machine!");
