@@ -156,6 +156,21 @@ $(document).ready(function () {
     });
     // end of .each loop
 
+
+    /*
+    *
+    * Beginning Timings
+    * 
+    */
+
+    // $(".marvel-device").hide().fadeIn(1000);
+
+    /*
+    *
+    * End Timings
+    * 
+    */
+
     // end animation with some celebration 
     const beginCelebration = () => {
         // start the confetis
