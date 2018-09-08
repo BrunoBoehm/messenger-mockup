@@ -104,24 +104,22 @@
 
   /* Test drive on Cubi Bezier here http://cubic-bezier.com/ */
   .celebration-animal {
-    background-image: url(https://asanablog-wpengine.netdna-ssl.com/wp-content/post-images/Solo-Unicorn-520x520.jpg);
+    background-image: url(../img/party-animals--blue-cow-1000px.png);
     background-size: cover;
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     position: absolute;
-    bottom: -20%;
-    left: 20%;  
-    animation: flyTopRight 1.3s cubic-bezier(.13,.66,.99,.35);
+    animation: flyTopRight 1.6s cubic-bezier(.13,.66,.99,.35);
     z-index: 50;
   }
 
   @keyframes flyTopRight {
     from { 
-      bottom: 0%;
-      left: 20%; 
+      bottom: -40%;
+      left: -20%; 
     }
     to {
-      bottom: 100%;
+      bottom: 90%;
       left: 70%;
     }
   }
