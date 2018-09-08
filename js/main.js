@@ -158,7 +158,14 @@ $(document).ready(function () {
 
     // end animation with some celebration 
     const beginCelebration = () => {
-        $("body").append("<div class='celebration-animal'></div>")
+        // start the confetis
+        step();
+
+        // bring on the party animal
+        const addPartyAnimal = () => {
+            $("body").append("<div class='celebration-animal'></div>");
+        }
+        setTimeout(addPartyAnimal, 2000);
     }
 
     setTimeout(beginCelebration, 3000);
