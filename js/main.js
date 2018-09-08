@@ -74,11 +74,22 @@ $(document).ready(function () {
         $(".main-content").css("transform", "scale(1.8, 1.8) translateY(-200px)"); 
     });
 
+    
+    /*
+     * Stop Confeti
+     */
+    $(".stop-confeti").one("click", stopConfeti);
+
+    function stopConfeti() {
+        $("#confeti").hide(200);
+    }
+
+
     /*
      * Only start the whole show on button click 
      */
 
-    $(".start-show").one("click", startShow);
+    $(".start-show").one("click", startShow());
 
     function startShow() {
         console.log("3, 2, 1... Start the machine!");
@@ -179,7 +190,6 @@ $(document).ready(function () {
 
             msginner = ".message-" + obj.name;
             $(msginner).delay(chatDelay3).fadeIn(); // text appears just after spinner goes out 
-
             
             // scroll during the spinner
             setTimeout(onRowAdded, scrollDelay);
