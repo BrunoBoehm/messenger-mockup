@@ -6,7 +6,8 @@
   
   .text-bar {
     height: 50px;
-    margin-top: 5px;
+    margin-top: 6px;
+    /* Hack to make sure no strange border appears */
     border-top: 1px solid #ccc;
   }
 

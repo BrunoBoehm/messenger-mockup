@@ -74,7 +74,12 @@ $(document).ready(function () {
         $(".main-content").css("transform", "scale(1.8, 1.8) translateY(-200px)"); 
     });
 
+    /*
+     * Device time (with moment.js)
+     */
     
+    $(".status-bar .time").html( moment().format('h:mm') ).show(1000);
+
     /*
      * Stop Confeti
      */

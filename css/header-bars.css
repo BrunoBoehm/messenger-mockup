@@ -30,7 +30,13 @@
     font-weight: 600;
   }
 
-  
+  .status-bar div.time {
+    position: absolute;
+    left: 43%;
+    top: 23px;
+    font-size: 14px;
+  }
+
   /*
   *
   * User Bar
