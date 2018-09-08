@@ -117,7 +117,7 @@ $(document).ready(function () {
             const messageNumber = chatMessages.length;
             totalChatDelay = totalChatDelay + 1000 + ( obj.delay ? obj.delay : 0 ); // before this message is triggered
             let currentWordsCount = chatMessages[_index].msg.split(" ").length; // timing based on length of current text
-            const chatDelay2 = totalChatDelay + ( currentWordsCount * 250 ); // time spinning
+            const chatDelay2 = totalChatDelay + ( currentWordsCount * 80 ); // time spinning
             const chatDelay3 = chatDelay2 + 50; // after spinning stops
             const scrollDelay = totalChatDelay;
             obj.name = _index + 1;
