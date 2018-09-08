@@ -17,16 +17,32 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background-size: contain;
-    background-position: top center;
-    background-image: url(https://lyketil.com/wp-content/uploads/2018/09/doodle-background-5-circular.png), linear-gradient(342deg,#50a7ed 0%,#ac4bfd 78%);
-    background-repeat: no-repeat;
+    /* background-image: linear-gradient(342deg,#50a7ed 0%,#ac4bfd 78%); */
+    background: linear-gradient(342deg, #50a7ed, #ac4bfd, #ff4208, #dc0398);
+	  background-size: 400% 400%;
     overflow: hidden;
+    animation: gradientDance 30s infinite;
+  }
+
+  @keyframes gradientDance {
+    0% {
+      background-position: 0% 20%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 20%;
+    }
   }
 
   .page {
     width: 100%;
     height: 100%;
+    background-image: url(https://lyketil.com/wp-content/uploads/2018/09/doodle-background-5-circular.png);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
