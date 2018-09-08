@@ -62,7 +62,7 @@ $(document).ready(function () {
      * Only start the whole show on button click 
      */
 
-    $(".push").one("click", startShow);
+    $(".start-show").one("click", startShow);
 
 
     function startShow() {
