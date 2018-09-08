@@ -140,7 +140,7 @@ $(document).ready(function () {
 
             const thumbBlock = `
                 <div class="message-wrapper ${obj.name}" hidden>
-                    <div class="message message--thumb thumb"></div>
+                    <div class="message message--thumb thumb animated pulse infinite"></div>
                 </div>
             `;
 
@@ -190,7 +190,7 @@ $(document).ready(function () {
 
             msginner = ".message-" + obj.name;
             $(msginner).delay(chatDelay3).fadeIn(100, function(){
-                $(this).find(".em").addClass("animated tada");
+                $(this).find(".em").addClass("animated pulse infinite");
             }); // text appears just after spinner goes out, and emoji gets animated
             
             // scroll during the spinner
