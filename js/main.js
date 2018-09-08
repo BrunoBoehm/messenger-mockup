@@ -144,13 +144,19 @@ $(document).ready(function () {
     function startShow() {
         console.log("3, 2, 1... Start the machine!");
 
+        // Hide Video Mark
+        $(".video-mark").hide();
+
         /*
         * Remove hidden from .main-content
         * Adds animation for device entrance 
         */
 
-        $(".main-content").show();
-        $(".marvel-device").addClass("animated fadeInUp");
+        const showDevice = () => {
+            $(".main-content").show();
+            $(".marvel-device").addClass("animated fadeInUp");
+        }
+        setTimeout(showDevice, 400);
 
         /*
         * Animates the sequential appearance of chat messages 

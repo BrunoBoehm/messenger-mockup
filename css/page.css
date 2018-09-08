@@ -116,3 +116,25 @@
   .chat-container {
     height: 100%;
   }
+
+  .video-mark  {
+    background-color: white;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+  }
+
+  .vertical-mark {
+    width: 2px;
+    height: 100px;
+  }
+
+  .horizontal-mark {
+    width: 100px;
+    height: 2px;
+  }
