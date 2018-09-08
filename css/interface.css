@@ -9,7 +9,7 @@
     border-radius: 5px;
 }
 
-.interface-panel .zooms {
+.interface-panel .sub-panel {
     border: 1px solid #ffffff21;
     padding: 8px 20px 10px;
     border-radius: 5px;
@@ -33,7 +33,7 @@
     float: right;
 }
 
-.zooms h2 {
+.sub-panel h2 {
     font-size: 14px;
     color: white;
     margin: 0;
