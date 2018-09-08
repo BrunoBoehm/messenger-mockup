@@ -99,6 +99,16 @@ $(document).ready(function () {
         currentDevice = this.value;
     });
 
+
+    /*
+     * Full Reset 
+     */
+
+    $('.reset').click(function() {
+        location.reload();
+    });
+
+
     /*
      * Manage Hovering
      */
