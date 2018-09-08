@@ -53,7 +53,7 @@ $(document).ready(function () {
             type: "received"
         },
         {
-            msg: 'D\'autres questions ? Contacter nous sur le chat <span class="accent">fb.me/lyketil</span> ou sur notre site <span class="accent--strong">lyketil.com</span>',
+            msg: 'D\'autres questions ? Contactez-nous<br> - sur le chat <span class="accent">fb.me/lyketil</span><br>- ou sur notre site <span class="accent--strong">lyketil.com</span>',
             type: "received"
         },  
     ];
