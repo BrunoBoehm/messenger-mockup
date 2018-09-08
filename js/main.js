@@ -89,7 +89,7 @@ $(document).ready(function () {
      * Only start the whole show on button click 
      */
 
-    $(".start-show").one("click", startShow());
+    $(".start-show").one("click", startShow);
 
     function startShow() {
         console.log("3, 2, 1... Start the machine!");
@@ -189,7 +189,9 @@ $(document).ready(function () {
             $(spinner).delay(chatDelay2).hide(300); // spins during "chatDelay2" time then hides
 
             msginner = ".message-" + obj.name;
-            $(msginner).delay(chatDelay3).fadeIn(); // text appears just after spinner goes out 
+            $(msginner).delay(chatDelay3).fadeIn(100, function(){
+                $(this).find(".em").addClass("animated tada");
+            }); // text appears just after spinner goes out, and emoji gets animated
             
             // scroll during the spinner
             setTimeout(onRowAdded, scrollDelay);
@@ -198,7 +200,7 @@ $(document).ready(function () {
             totalChatDelay = chatDelay3;
         });
         // end of .each loop
-
+       
 
         /*
         * Ending celebrations 
