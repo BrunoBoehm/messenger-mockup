@@ -218,7 +218,9 @@
   }
   
   .accent--medium {
-    background-color: #1998e645;
+    background-color: #ffffff78;
+    color: #1a97e6;
+    font-weight: 600;
     padding: 2px 8px;
     border-radius: 4px;
   }
