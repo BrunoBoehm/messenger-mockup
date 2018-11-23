@@ -18,7 +18,7 @@ const chatMessages = [
         msg: "COOL... J'aimerais bien développer mon business avec le web.",
         type: "sent"
     },
-    {
+    {   // SOLUTION
         msg: "OK, en bref et en simplifiant la recette c'est :",
         type: "received"
     },
@@ -38,7 +38,7 @@ const chatMessages = [
         msg: 'Et surtout de la régularité et un peu de persévérance <i class="em em-zap"></i><i class="em em-yum"></i>',
         type: "received"
     },
-    {
+    {   // Next Step
         msg: 'OK... On commence quand?',
         type: "sent"
     },
