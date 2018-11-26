@@ -1,0 +1,29 @@
+{
+  "name": "messenger-mockup",
+  "version": "1.0.0",
+  "description": "messenger mockup by lyketil",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoBoehm/messenger-mockup.git"
+  },
+  "keywords": [
+    "messenger"
+  ],
+  "author": "Lyketil.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoBoehm/messenger-mockup/issues"
+  },
+  "homepage": "https://github.com/BrunoBoehm/messenger-mockup#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "npm": "^6.4.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.26.0"
+  }
+}
